@@ -1,0 +1,26 @@
+---
+resources:
+  - name: scw-repo
+    type: git
+    source:
+      uri: https://github.com/jacopen/springboot-concourse-workshop
+      branch: workshop
+
+jobs:
+  - name: unit-test
+    plan:
+      - get: scw-repo
+        trigger: true
+      - task: unit
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: java
+              tag: '8'
+          run:
+            path: bash
+            args:
+            - -c
+            - |
