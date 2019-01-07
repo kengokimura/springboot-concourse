@@ -16,7 +16,7 @@ public class BootSampleApplication {
   
   @GetMapping(path = "/test") // (2)
   public String response() {
-      return "testtest";
+      return "test20190108";
   }
   
 	public static void main(String[] args) {
